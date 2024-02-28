@@ -1,22 +1,9 @@
 name: "Terraform Destroy"
 
 on:
-  workflow_call:
-    inputs:
-      tf_version:
-        description: 'Specifies version of Terraform to use. e.g: 1.1.0 Default=latest.'
-        required: false
-        type: string
-        default: latest
-      gh_environment:
-        description: 'Specifies the GitHub deployment environment.'
-        required: false
-        type: string
-        default: null
-    secrets:
-      cli_config_credentials_token:
-        description: 'cli config credentials token'
-        required: true
+  push:
+    branches:
+      - main
 
 jobs:
   destroy:
@@ -35,4 +22,4 @@ jobs:
         run: terraform init
 
       - name: Terraform Destroy
-        run: terraform destroy -auto-approve
+        run: terraform destroy
