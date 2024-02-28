@@ -21,7 +21,7 @@ backend "remote" {
 		organization = "devops-123"
 
 		workspaces {
-			name = "awseks"
+			name = "aws-eks"
 		}
 	}
 }
